@@ -40,7 +40,6 @@ function App() {
             style={{
               width: "100vw",
               height: "100vh",
-              borderRadius: "10px",
               objectFit: "cover",
             }}
           />
