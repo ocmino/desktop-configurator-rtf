@@ -5,6 +5,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import "../App.css";
 
 function Configurator() {
+
   return (
     <div className="configurator">
       <Button.Group orientation="vertical">

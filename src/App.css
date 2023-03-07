@@ -24,3 +24,45 @@
     background-color: white;
   }
 }
+
+.configurator2 {
+  position: fixed;
+  right: 0;
+  width: auto;
+  bottom: 20vh;
+  color: white;
+  padding: 16px;
+  background-color: #1a1a1a;
+}
+
+.configurator__section__title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.configurator__section__values {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+.item__label {
+  font-size: 12px;
+  color: #acacac;
+  transition: 0.4s color;
+}
+
+.item {
+  transition: 0.4s opacity;
+}
+
+.item:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.item.item--active .item__label {
+  color: white;
+}
