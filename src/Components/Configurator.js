@@ -10,63 +10,31 @@ function Configurator() {
       <Button.Group orientation="vertical">
         <Button
           variant="default"
-          style={{
-            position: "relative",
-            display: "flex",
-          }}
+          style={{ position: "relative", display: "flex" }}
         >
           Storlek
-          <BiChevronRight
-            style={{
-              position: "absolute",
-              right: "10px",
-            }}
-          />
+          <BiChevronRight style={{ position: "absolute", right: "10px" }} />
         </Button>
         <Button
           variant="default"
-          style={{
-            position: "relative",
-            display: "flex",
-          }}
+          style={{ position: "relative", display: "flex" }}
         >
           Färgval pool
-          <BiChevronRight
-            style={{
-              position: "absolute",
-              right: "10px",
-            }}
-          />
+          <BiChevronRight style={{ position: "absolute", right: "10px" }} />
         </Button>
         <Button
           variant="default"
-          style={{
-            position: "relative",
-            display: "flex",
-          }}
+          style={{ position: "relative", display: "flex" }}
         >
           Typ av omfång
-          <BiChevronRight
-            style={{
-              position: "absolute",
-              right: "10px",
-            }}
-          />
+          <BiChevronRight style={{ position: "absolute", right: "10px" }} />
         </Button>
         <Button
           variant="default"
-          style={{
-            position: "relative",
-            display: "flex",
-          }}
+          style={{ position: "relative", display: "flex" }}
         >
           Typ av trappa
-          <BiChevronRight
-            style={{
-              position: "absolute",
-              right: "10px",
-            }}
-          />
+          <BiChevronRight style={{ position: "absolute", right: "10px" }} />
         </Button>
       </Button.Group>
 
