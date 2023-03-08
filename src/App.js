@@ -3,11 +3,12 @@ import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { Modal, Group, Button, Affix } from "@mantine/core";
 import Experience from "./Components/Experience";
 import { CustomizationProvider } from "./Context/Customization";
+import { useHover } from '@mantine/hooks';
 
 function App() {
   const [opened, { open, close }] = useDisclosure(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
-
+  const { hovered, ref } = useHover();
   return (
     <>
       <CustomizationProvider>
@@ -40,6 +41,7 @@ function App() {
             style={{
               width: "100vw",
               height: "100vh",
+
               objectFit: "cover",
             }}
           />
@@ -51,8 +53,10 @@ function App() {
             }}
           >
             <Button
+              ref={ref}
               onClick={open}
               style={{
+                width: "200px",
                 height: "100px",
                 borderRadius: "10px",
                 backgroundColor: "#f5f5f5",
@@ -66,7 +70,7 @@ function App() {
                   "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
               }}
             >
-              Bygg din egen pool
+              {hovered ? "Klicka för att börja" : "Bygg din egen pool"}
             </Button>
           </Affix>
         </Group>

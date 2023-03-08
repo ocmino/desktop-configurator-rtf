@@ -1,43 +1,76 @@
-import React from "react";
+import { useState } from "react";
 import { Button } from "@mantine/core";
-import { BiChevronRight } from "react-icons/bi";
+import { BiChevronRight, BiArrowBack } from "react-icons/bi";
 import { useMediaQuery } from "@mantine/hooks";
+
 import "../App.css";
 
-function Configurator() {
+function MainMenu() {
+  const [subMenuIndex, setSubMenuIndex] = useState(-1); // -1 means no submenu is open
+
+  const openSubMenu = (index) => {
+    setSubMenuIndex(index);
+  };
+
+  const closeSubMenu = () => {
+    setSubMenuIndex(-1);
+  };
+
+  const menuItems = [
+    { label: "Storlek", subMenuItems: ["Liten", "Medium", "Stor"] },
+    {
+      label: "Färgval pool",
+      subMenuItems: ["Blå", "Röd", "Grön", "Gul", "Svart"],
+    },
+    {
+      label: "Typ av omfång",
+      subMenuItems: ["Rakt", "Svängt"],
+    },
+    {
+      label: "Typ av trappa",
+      subMenuItems: ["Rak", "Svängd"],
+    },
+  ];
 
   return (
-    <div className="configurator">
-      <Button.Group orientation="vertical">
-        <Button
-          variant="default"
-          style={{ position: "relative", display: "flex" }}
-        >
-          Storlek
-          <BiChevronRight style={{ position: "absolute", right: "10px" }} />
-        </Button>
-        <Button
-          variant="default"
-          style={{ position: "relative", display: "flex" }}
-        >
-          Färgval pool
-          <BiChevronRight style={{ position: "absolute", right: "10px" }} />
-        </Button>
-        <Button
-          variant="default"
-          style={{ position: "relative", display: "flex" }}
-        >
-          Typ av omfång
-          <BiChevronRight style={{ position: "absolute", right: "10px" }} />
-        </Button>
-        <Button
-          variant="default"
-          style={{ position: "relative", display: "flex" }}
-        >
-          Typ av trappa
-          <BiChevronRight style={{ position: "absolute", right: "10px" }} />
-        </Button>
-      </Button.Group>
+    <div>
+      {subMenuIndex === -1 && (
+        <Button.Group orientation="vertical">
+          {menuItems.map((item, index) => (
+            <Button
+              key={index}
+              variant="default"
+              style={{ position: "relative", display: "flex", fontSize: "10px", height: "4vh" }}
+              onClick={() => openSubMenu(index)}
+            >
+              {item.label}
+              <BiChevronRight style={{ position: "absolute", right: "10px" }} />
+            </Button>
+          ))}
+        </Button.Group>
+      )}
+      {subMenuIndex >= 0 && (
+        <Button.Group orientation="vertical">
+          <Button
+            variant="default"
+            style={{ position: "relative", display: "flex", fontSize: "10px", height: "4vh", fontStyle: "italic", textDecoration: "underline" }}
+            onClick={closeSubMenu}
+          >
+            Tillbaka
+          </Button>
+          {menuItems[subMenuIndex].subMenuItems.map((item, index) => (
+            <Button
+              key={index}
+              variant="default"
+              style={{ position: "relative", display: "flex", fontSize: "10px", height: "4vh" }}
+              onClick={() => console.log(item)} // replace with desired functionality
+            >
+              {item}
+              <BiChevronRight style={{ position: "absolute", right: "10px" }} />
+            </Button>
+          ))}
+        </Button.Group>
+      )}
 
       <Button.Group
         orientation={
@@ -63,10 +96,10 @@ function Configurator() {
             borderRadius: "20px",
             backgroundColor: "lightblue",
             color: "#000",
+            fontSize: "12px",
             margin: "10px",
             border: "none",
-            boxShadow:
-              "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+            boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
           }}
         >
           Placera på gården
@@ -77,19 +110,26 @@ function Configurator() {
           style={{
             position: "relative",
             height: "10vh",
-
             borderRadius: "20px",
             backgroundColor: "#f5f5f5",
             color: "#000",
+            fontSize: "12px",
             margin: "10px",
             border: "none",
-            boxShadow:
-              "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+            boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
           }}
         >
           Hämta PDF
         </Button>
       </Button.Group>
+    </div>
+  );
+}
+
+function Configurator() {
+  return (
+    <div className="configurator">
+      <MainMenu />
     </div>
   );
 }
