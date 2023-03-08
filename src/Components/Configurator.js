@@ -18,27 +18,22 @@ function MainMenu() {
   };
 
   const menuItems = [
-    { label: "Storlek", subMenuItems: ["Liten", "Medium", "Stor"] },
-    {
-      label: "Färgval pool",
-      subMenuItems: ["Blå", "Röd", "Grön", "Gul", "Svart"],
-    },
-    {
-      label: "Typ av omfång",
-      subMenuItems: ["Rakt", "Svängt"],
-    },
-    {
-      label: "Typ av trappa",
-      subMenuItems: ["Rak", "Svängd"],
-    },
+    { label: "Storlek", subMenuItems: ["4x6", "5x8"] },
+    { label: "Stair", subMenuItems: ["Rak", "Svängd"] },
+    { label: "PoolColor", subMenuItems: ["Blå", "Grön"] },
+    { label: "Ground", subMenuItems: ["Grå", "Beige"] },
   ];
 
-  const {groundColor, setGroundColor, poolColor, setPoolColor, stairType, setStairType, poolSize, setPoolSize} = useCustomization();
-
-  const [groundColorOpen, setGroundColorOpen] = useState(false);
-  const [poolColorOpen, setPoolColorOpen] = useState(false);
-  const [stairTypeOpen, setStairTypeOpen] = useState(false);
-  const [poolSizeOpen, setPoolSizeOpen] = useState(false);
+  const {
+    groundColor,
+    setGroundColor,
+    poolColor,
+    setPoolColor,
+    stairType,
+    setStairType,
+    poolSize,
+    setPoolSize,
+  } = useCustomization();
 
   return (
     <div>
@@ -48,7 +43,12 @@ function MainMenu() {
             <Button
               key={index}
               variant="default"
-              style={{ position: "relative", display: "flex", fontSize: "10px", height: "4vh" }}
+              style={{
+                position: "relative",
+                display: "flex",
+                fontSize: "10px",
+                height: "4vh",
+              }}
               onClick={() => openSubMenu(index)}
             >
               {item.label}
@@ -57,26 +57,185 @@ function MainMenu() {
           ))}
         </Button.Group>
       )}
-      {subMenuIndex >= 0 && (
+
+      {subMenuIndex === 1 && (
         <Button.Group orientation="vertical">
           <Button
             variant="default"
-            style={{ position: "relative", display: "flex", fontSize: "10px", height: "4vh", fontStyle: "italic", textDecoration: "underline" }}
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+              fontStyle: "italic",
+              textDecoration: "underline",
+            }}
             onClick={closeSubMenu}
           >
             Tillbaka
           </Button>
-          {menuItems[subMenuIndex].subMenuItems.map((item, index) => (
-            <Button
-              key={index}
-              variant="default"
-              style={{ position: "relative", display: "flex", fontSize: "10px", height: "4vh" }}
-              onClick={() => console.log(item)} // replace with desired functionality
-            >
-              {item}
-              <BiChevronRight style={{ position: "absolute", right: "10px" }} />
-            </Button>
-          ))}
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+            }}
+            onClick={() => setStairType("Rak")}
+          >
+            Rak
+            <BiChevronRight style={{ position: "absolute", right: "10px" }} />
+          </Button>
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+            }}
+            onClick={() => setStairType("Svängd")}
+          >
+            Svängd
+            <BiChevronRight style={{ position: "absolute", right: "10px" }} />
+          </Button>
+        </Button.Group>
+      )}
+
+      {subMenuIndex === 2 && (
+        <Button.Group orientation="vertical">
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+              fontStyle: "italic",
+              textDecoration: "underline",
+            }}
+            onClick={closeSubMenu}
+          >
+            Tillbaka
+          </Button>
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+            }}
+            onClick={() => setPoolColor("Blå")}
+          >
+            Blå
+            <BiChevronRight style={{ position: "absolute", right: "10px" }} />
+          </Button>
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+            }}
+            onClick={() => setPoolColor("Grön")}
+          >
+            Grön
+            <BiChevronRight style={{ position: "absolute", right: "10px" }} />
+          </Button>
+        </Button.Group>
+      )}
+
+      {subMenuIndex === 3 && (
+        <Button.Group orientation="vertical">
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+              fontStyle: "italic",
+              textDecoration: "underline",
+            }}
+            onClick={closeSubMenu}
+          >
+            Tillbaka
+          </Button>
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+            }}
+            onClick={() => setGroundColor("Grå")}
+          >
+            Grå
+            <BiChevronRight style={{ position: "absolute", right: "10px" }} />
+          </Button>
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+            }}
+            onClick={() => setGroundColor("Beige")}
+          >
+            Beige
+            <BiChevronRight style={{ position: "absolute", right: "10px" }} />
+          </Button>
+        </Button.Group>
+      )}
+
+      {subMenuIndex === 0 && (
+        <Button.Group orientation="vertical">
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+              fontStyle: "italic",
+              textDecoration: "underline",
+            }}
+            onClick={closeSubMenu}
+          >
+            Tillbaka
+          </Button>
+
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+            }}
+            onClick={() => setPoolSize(1)}
+          >
+            3x6 m
+            <BiChevronRight style={{ position: "absolute", right: "10px" }} />
+          </Button>
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+            }}
+            onClick={() => setPoolSize(2)}
+          >
+            5x8 m
+            <BiChevronRight style={{ position: "absolute", right: "10px" }} />
+          </Button>
         </Button.Group>
       )}
 
@@ -107,7 +266,8 @@ function MainMenu() {
             fontSize: "12px",
             margin: "10px",
             border: "none",
-            boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+            boxShadow:
+              "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
           }}
         >
           Placera på gården
@@ -124,7 +284,8 @@ function MainMenu() {
             fontSize: "12px",
             margin: "10px",
             border: "none",
-            boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+            boxShadow:
+              "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
           }}
         >
           Hämta PDF

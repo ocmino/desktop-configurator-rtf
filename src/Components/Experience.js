@@ -1,5 +1,7 @@
 import { Environment, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import NewPool from "../NewPool";
+
 import PahlenPool from "../PahlenPool";
 import Pool from "../Pool";
 import Configurator from "./Configurator";
@@ -21,8 +23,7 @@ const Experience = () => {
           maxDistance={10}
         />
         <Environment preset="park" background={true} />
-          <Pool />
-    
+        <NewPool />
       </Canvas>
       <Configurator />
     </>
