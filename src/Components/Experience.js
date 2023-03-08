@@ -4,6 +4,7 @@ import PahlenPool from "../PahlenPool";
 import Pool from "../Pool";
 import Configurator from "./Configurator";
 import Configurator2 from "./Configurator2";
+import HoleSquare from "./HoleSquare";
 
 const Experience = () => {
   return (
@@ -20,8 +21,8 @@ const Experience = () => {
           maxDistance={10}
         />
         <Environment preset="park" background={true} />
-
-        <Pool position={[0, 1, 0]} />
+          <Pool />
+    
       </Canvas>
       <Configurator />
     </>

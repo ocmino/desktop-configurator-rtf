@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@mantine/core";
 import { BiChevronRight, BiArrowBack } from "react-icons/bi";
 import { useMediaQuery } from "@mantine/hooks";
+import { useCustomization } from "../Context/Customization";
 
 import "../App.css";
 
@@ -31,6 +32,13 @@ function MainMenu() {
       subMenuItems: ["Rak", "Svängd"],
     },
   ];
+
+  const {groundColor, setGroundColor, poolColor, setPoolColor, stairType, setStairType, poolSize, setPoolSize} = useCustomization();
+
+  const [groundColorOpen, setGroundColorOpen] = useState(false);
+  const [poolColorOpen, setPoolColorOpen] = useState(false);
+  const [stairTypeOpen, setStairTypeOpen] = useState(false);
+  const [poolSizeOpen, setPoolSizeOpen] = useState(false);
 
   return (
     <div>
