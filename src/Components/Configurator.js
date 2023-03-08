@@ -82,7 +82,7 @@ function MainMenu() {
               fontSize: "10px",
               height: "4vh",
             }}
-            onClick={() => setStairType("Rak")}
+            onClick={() => setStairType(1)}
           >
             Rak
             <BiChevronRight style={{ position: "absolute", right: "10px" }} />
@@ -95,7 +95,7 @@ function MainMenu() {
               fontSize: "10px",
               height: "4vh",
             }}
-            onClick={() => setStairType("Svängd")}
+            onClick={() => setStairType(2)}
           >
             Svängd
             <BiChevronRight style={{ position: "absolute", right: "10px" }} />

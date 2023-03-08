@@ -38,12 +38,14 @@ const NewPool = (props) => {
           geometry={nodes.pool_stairs_wide_3x6.geometry}
           material={materials["pool tiles"]}
           position={[0, 0, -1.5]}
+          visible={stairType === 1}
         />
         <mesh
           geometry={nodes.pool_stairs_corner_3x6.geometry}
           material={materials["pool tiles"]}
           position={[0.9, 0.53, -2.4]}
           rotation={[0, -Math.PI / 4, 0]}
+          visible={stairType === 2}
         />
       </group>
 
@@ -74,6 +76,7 @@ const NewPool = (props) => {
           material={materials["pool tiles.002"]}
           position={[0, 0, -2]}
           scale={[1.33, 1, 1.33]}
+          visible={stairType === 1}
         />
         <mesh
           geometry={nodes.pool_stairs_corner_5x8.geometry}
@@ -81,6 +84,7 @@ const NewPool = (props) => {
           position={[1.21, 0.53, -3.2]}
           rotation={[0, -Math.PI / 4, 0]}
           scale={[1.33, 1, 1.33]}
+          visible={stairType === 2}
         />
       </group>
 
