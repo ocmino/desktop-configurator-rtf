@@ -1,16 +1,38 @@
 import React from "react";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
-import { Modal, Group, Button, Affix } from "@mantine/core";
+import {
+  Box,
+  LoadingOverlay,
+  Modal,
+  Group,
+  Button,
+  Affix,
+} from "@mantine/core";
 import Experience from "./Components/Experience";
 import { CustomizationProvider } from "./Context/Customization";
-import { useHover } from '@mantine/hooks';
+import { useHover } from "@mantine/hooks";
+import { useEffect } from "react";
 
 function App() {
   const [opened, { open, close }] = useDisclosure(false);
+  const [visible, { toggle }] = useDisclosure();
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const { hovered, ref } = useHover();
+  
+  //set the loading overlay to be visible for 2 seconds 
+  useEffect(() => {
+    if (visible) {
+      setTimeout(() => {
+        toggle();
+      }, 1000);
+    }
+  }, [visible, toggle]);
+
+
   return (
     <>
+      <LoadingOverlay visible={visible} />
+
       <CustomizationProvider>
         <Modal
           opened={opened}
@@ -54,7 +76,10 @@ function App() {
           >
             <Button
               ref={ref}
-              onClick={open}
+              onClick={() => {
+                open();
+                toggle();
+              }}
               style={{
                 width: "200px",
                 height: "100px",

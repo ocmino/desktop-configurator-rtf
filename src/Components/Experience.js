@@ -18,12 +18,14 @@ const Experience = () => {
       >
         <OrbitControls
           enablePan={true}
-          maxPolarAngle={Math.PI / 2.4}
+          maxPolarAngle={Math.PI / 3}
           minDistance={4.5}
           maxDistance={10}
         />
         <Environment preset="park" background={true} />
-        <NewPool />
+        <NewPool
+          position={[0, 1, 0]}
+          />
       </Canvas>
       <Configurator />
     </>

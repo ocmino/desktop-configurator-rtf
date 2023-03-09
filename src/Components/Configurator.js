@@ -3,10 +3,13 @@ import { Button } from "@mantine/core";
 import { BiChevronRight, BiArrowBack } from "react-icons/bi";
 import { useMediaQuery } from "@mantine/hooks";
 import { useCustomization } from "../Context/Customization";
-
+import { Modal } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import "../App.css";
 
 function MainMenu() {
+  const [opened, { open, close }] = useDisclosure(false);
+
   const [subMenuIndex, setSubMenuIndex] = useState(-1); // -1 means no submenu is open
 
   const openSubMenu = (index) => {
@@ -19,9 +22,9 @@ function MainMenu() {
 
   const menuItems = [
     { label: "Storlek", subMenuItems: ["4x6", "5x8"] },
-    { label: "Stair", subMenuItems: ["Rak", "Svängd"] },
-    { label: "PoolColor", subMenuItems: ["Blå", "Grön"] },
-    { label: "Ground", subMenuItems: ["Grå", "Beige"] },
+    { label: "Trappa", subMenuItems: ["Rak", "Svängd"] },
+    { label: "Liner", subMenuItems: ["Blå", "Turkos"] },
+    { label: "Omfång", subMenuItems: ["Grå", "Beige"] },
   ];
 
   const {
@@ -251,10 +254,13 @@ function MainMenu() {
           height: "100%",
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: useMediaQuery("(min-width: 768px)")
+            ? "center"
+            : "flex-end", // Updated line
         }}
       >
         <Button
+          onClick={open}
           fullWidth
           variant="outline"
           style={{
@@ -272,6 +278,26 @@ function MainMenu() {
         >
           Placera på gården
         </Button>
+        <Modal opened={opened} onClose={close}>
+          <model-viewer
+            src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+            alt="A 3D model of an astronaut"
+            ar
+            ar-modes="webxr scene-viewer quick-look"
+            camera-controls
+            auto-rotate
+            shadow-intensity="1"
+            exposure="1"
+            style={{
+              width: "100%",
+              height: "80vh",
+              left: "0",
+              top: "0",
+              position: "relative",
+            }}
+          ></model-viewer>
+        </Modal>
+
         <Button
           fullWidth
           variant="outline"
