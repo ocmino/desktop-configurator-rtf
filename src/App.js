@@ -45,8 +45,8 @@ function App() {
               bottom: isDesktop ? "5%" : "5%",
             }}
           >
-            <ARButton style={
-              {
+            <ARButton
+              style={{
                 position: "absolute",
                 top: "10px",
                 left: "10px",
@@ -54,7 +54,6 @@ function App() {
                 width: "auto",
                 height: "auto",
                 borderRadius: "10px",
-                backgroundColor: "rgba(255, 255, 255, 0.8)",
                 color: "black",
                 border: "none",
                 padding: "10px 20px",
@@ -63,10 +62,8 @@ function App() {
                 transition: "0.3s",
                 boxShadow:
                   "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
-
-            }
-
-            } />
+              }}
+            />
             <Experience />
           </Affix>
         </Modal>

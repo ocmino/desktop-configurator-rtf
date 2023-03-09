@@ -19,11 +19,13 @@ const Skrivbord = (props) => {
   const vit = {
     color: 0xffffff,
     side: 2,
+    roughness: 1,
   }
 
   const svart = {
     color: 0x000000,
     side: 2,
+    roughness: 1,
   }
 
   const Wood = useTexture({
