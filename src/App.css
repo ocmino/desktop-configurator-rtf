@@ -6,8 +6,8 @@
   opacity: 0.9;
   position: absolute;
   right: 0vw;
-  bottom: 5vh;
-  height: 80vh;
+  top: 5vh;
+  height: auto;
   width: 15vw;
   background-color: white;
   border-radius: 10px;
