@@ -5,6 +5,8 @@ import Configurator from "./Configurator";
 import { MeshReflectorMaterial } from "@react-three/drei";
 import Skrivbord from "../Skrivbord";
 
+import { XR } from "@react-three/xr";
+
 
 const Experience = () => {
   return (
@@ -20,8 +22,10 @@ const Experience = () => {
         />
        
         <Environment preset="city" />
-        
+
+        <XR referenceSpace="local-floor">
         <Skrivbord position={[0, -0.5, 0]} />
+        </XR>
         <mesh rotation={[-Math.PI / 2, 0, 0] } position={[0, -0.5, 0]} receiveShadow>
             <planeGeometry args={[170, 170]} />
             <MeshReflectorMaterial
