@@ -10,6 +10,7 @@ root.render(
       withGlobalStyles
       withNormalizeCSS
       theme={{
+        colorScheme: "dark",
         globalStyles: (_theme) => ({
           body: {
             width: "100vw",

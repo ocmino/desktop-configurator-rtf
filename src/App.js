@@ -1,7 +1,6 @@
 import React from "react";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import {
-  Box,
   LoadingOverlay,
   Modal,
   Group,
@@ -18,8 +17,8 @@ function App() {
   const [visible, { toggle }] = useDisclosure();
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const { hovered, ref } = useHover();
-  
-  //set the loading overlay to be visible for 2 seconds 
+
+  //set the loading overlay to be visible for 2 seconds
   useEffect(() => {
     if (visible) {
       setTimeout(() => {
@@ -27,7 +26,6 @@ function App() {
       }, 1000);
     }
   }, [visible, toggle]);
-
 
   return (
     <>
@@ -58,7 +56,7 @@ function App() {
 
         <Group>
           <img
-            src="/Pictures/Pool.jpg"
+            src="/Pictures/DeskBackground.png"
             alt="Ekopool"
             style={{
               width: "100vw",
@@ -81,11 +79,11 @@ function App() {
                 toggle();
               }}
               style={{
-                width: "200px",
+                width: "250px",
                 height: "100px",
                 borderRadius: "10px",
-                backgroundColor: "#f5f5f5",
-                color: "#000",
+                backgroundColor: "rgba(255, 255, 255, 0.8)",
+                color: "black",
                 border: "none",
                 padding: "10px 20px",
                 fontSize: "16px",
@@ -95,7 +93,7 @@ function App() {
                   "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
               }}
             >
-              {hovered ? "Klicka för att börja" : "Bygg din egen pool"}
+              {hovered ? "Klicka för att börja!" : "Konfigurera ditt skrivbord"}
             </Button>
           </Affix>
         </Group>

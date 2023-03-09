@@ -4,22 +4,28 @@ import { useContext, useState } from "react";
 const CustomizationContext = createContext({});
 
 export const CustomizationProvider = (props) => {
-  const [groundColor, setGroundColor] = useState("GroundColor_1");
-  const [poolColor, setPoolColor] = useState("PoolColor_1");
-  const [stairType, setStairType] = useState(1);
-  const [poolSize, setPoolSize] = useState(1);
+  const [ben, setBen] = useState(1);
+  const [färg, setFärg] = useState("vit");
+  const [rygg, setRygg] = useState(1);
+  const [låda, setLåda] = useState(1);
+  const [färgBen, setFärgBen] = useState("vit");
+  const [tillbehör, setTillbehör] = useState(1);
 
   return (
     <CustomizationContext.Provider
       value={{
-        groundColor,
-        setGroundColor,
-        poolColor,
-        setPoolColor,
-        stairType,
-        setStairType,
-        poolSize,
-        setPoolSize,
+        ben,
+        setBen,
+        färg,
+        setFärg,
+        rygg,
+        setRygg,
+        låda,
+        setLåda,
+        färgBen,
+        setFärgBen,
+        tillbehör,
+        setTillbehör,
       }}
     >
       {props.children}

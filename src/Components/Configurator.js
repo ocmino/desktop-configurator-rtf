@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Button } from "@mantine/core";
-import { BiChevronRight, BiArrowBack } from "react-icons/bi";
-import { useMediaQuery } from "@mantine/hooks";
+import { BiChevronRight } from "react-icons/bi";
+
 import { useCustomization } from "../Context/Customization";
-import { Modal } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+
+
 import "../App.css";
 
 function MainMenu() {
-  const [opened, { open, close }] = useDisclosure(false);
+
 
   const [subMenuIndex, setSubMenuIndex] = useState(-1); // -1 means no submenu is open
 
@@ -21,22 +21,37 @@ function MainMenu() {
   };
 
   const menuItems = [
-    { label: "Storlek", subMenuItems: ["4x6", "5x8"] },
-    { label: "Trappa", subMenuItems: ["Rak", "Svängd"] },
-    { label: "Liner", subMenuItems: ["Blå", "Turkos"] },
-    { label: "Omfång", subMenuItems: ["Grå", "Beige"] },
+    { label: "Ben", subMenuItems: ["Klassisk", "Design"] },
+    { label: "Färg skiva", subMenuItems: ["Vit", "Svart"] },
+    { label: "Rygg", subMenuItems: ["Med", "Utan"] },
+    { label: "Låda", subMenuItems: ["Höger", "Vänster"] },
+    { label: "Färg ben", subMenuItems: ["Vit", "Svart"] },
   ];
 
   const {
-    groundColor,
-    setGroundColor,
-    poolColor,
-    setPoolColor,
-    stairType,
-    setStairType,
-    poolSize,
-    setPoolSize,
+    
+    setBen,
+    
+    setFärg,
+    
+    setRygg,
+    
+    setLåda,
+    
+    setFärgBen,
+    tillbehör,
+    setTillbehör,
   } = useCustomization();
+
+  //toggle function for setTillbehör between 0 and 1
+  const toggleTillbehör = () => {
+    if (tillbehör === 1) {
+      setTillbehör(2);
+    } else {
+      setTillbehör(1);
+    }
+  };
+  
 
   return (
     <div>
@@ -58,6 +73,52 @@ function MainMenu() {
               <BiChevronRight style={{ position: "absolute", right: "10px" }} />
             </Button>
           ))}
+        </Button.Group>
+      )}
+
+      {subMenuIndex === 0 && (
+        <Button.Group orientation="vertical">
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+              fontStyle: "italic",
+              textDecoration: "underline",
+            }}
+            onClick={closeSubMenu}
+          >
+            Tillbaka
+          </Button>
+
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+            }}
+            onClick={() => setBen(1)}
+          >
+            Klassisk
+            <BiChevronRight style={{ position: "absolute", right: "10px" }} />
+          </Button>
+          <Button
+            variant="default"
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: "10px",
+              height: "4vh",
+            }}
+            onClick={() => setBen(2)}
+          >
+            Design
+            <BiChevronRight style={{ position: "absolute", right: "10px" }} />
+          </Button>
         </Button.Group>
       )}
 
@@ -85,9 +146,9 @@ function MainMenu() {
               fontSize: "10px",
               height: "4vh",
             }}
-            onClick={() => setStairType(1)}
+            onClick={() => setFärg("vit")}
           >
-            Rak
+            Vit
             <BiChevronRight style={{ position: "absolute", right: "10px" }} />
           </Button>
           <Button
@@ -98,9 +159,9 @@ function MainMenu() {
               fontSize: "10px",
               height: "4vh",
             }}
-            onClick={() => setStairType(2)}
+            onClick={() => setFärg("svart")}
           >
-            Svängd
+            Svart
             <BiChevronRight style={{ position: "absolute", right: "10px" }} />
           </Button>
         </Button.Group>
@@ -130,9 +191,9 @@ function MainMenu() {
               fontSize: "10px",
               height: "4vh",
             }}
-            onClick={() => setPoolColor("Blå")}
+            onClick={() => setRygg(1)}
           >
-            Blå
+            Med
             <BiChevronRight style={{ position: "absolute", right: "10px" }} />
           </Button>
           <Button
@@ -143,9 +204,9 @@ function MainMenu() {
               fontSize: "10px",
               height: "4vh",
             }}
-            onClick={() => setPoolColor("Grön")}
+            onClick={() => setRygg(2)}
           >
-            Grön
+            Utan
             <BiChevronRight style={{ position: "absolute", right: "10px" }} />
           </Button>
         </Button.Group>
@@ -175,9 +236,9 @@ function MainMenu() {
               fontSize: "10px",
               height: "4vh",
             }}
-            onClick={() => setGroundColor("Grå")}
+            onClick={() => setLåda(1)}
           >
-            Grå
+            Höger
             <BiChevronRight style={{ position: "absolute", right: "10px" }} />
           </Button>
           <Button
@@ -188,15 +249,15 @@ function MainMenu() {
               fontSize: "10px",
               height: "4vh",
             }}
-            onClick={() => setGroundColor("Beige")}
+            onClick={() => setLåda(2)}
           >
-            Beige
+            Vänster
             <BiChevronRight style={{ position: "absolute", right: "10px" }} />
           </Button>
         </Button.Group>
       )}
 
-      {subMenuIndex === 0 && (
+      {subMenuIndex === 4 && (
         <Button.Group orientation="vertical">
           <Button
             variant="default"
@@ -212,7 +273,6 @@ function MainMenu() {
           >
             Tillbaka
           </Button>
-
           <Button
             variant="default"
             style={{
@@ -221,9 +281,9 @@ function MainMenu() {
               fontSize: "10px",
               height: "4vh",
             }}
-            onClick={() => setPoolSize(1)}
+            onClick={() => setFärgBen("vit")}
           >
-            3x6 m
+            Vit
             <BiChevronRight style={{ position: "absolute", right: "10px" }} />
           </Button>
           <Button
@@ -234,91 +294,32 @@ function MainMenu() {
               fontSize: "10px",
               height: "4vh",
             }}
-            onClick={() => setPoolSize(2)}
+            onClick={() => setFärgBen("svart")}
           >
-            5x8 m
+            Svart
             <BiChevronRight style={{ position: "absolute", right: "10px" }} />
           </Button>
         </Button.Group>
       )}
 
-      <Button.Group
-        orientation={
-          useMediaQuery("(min-width: 768px)") ? "vertical" : "horizontal"
-        }
-        style={{
-          position: "relative",
-          left: "50%",
-          transform: "translate(-50%, 0)",
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: useMediaQuery("(min-width: 768px)")
-            ? "center"
-            : "flex-end", // Updated line
-        }}
-      >
-        <Button
-          onClick={open}
-          fullWidth
-          variant="outline"
-          style={{
-            position: "relative",
-            height: "10vh",
-            width: "140px",
-            borderRadius: "20px",
-            backgroundColor: "lightblue",
-            color: "#000",
-            fontSize: "12px",
-            margin: "10px",
-            border: "none",
-            boxShadow:
-              "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
-          }}
-        >
-          Placera på gården
-        </Button>
-        <Modal opened={opened} onClose={close}>
-          <model-viewer
-            src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-            alt="A 3D model of an astronaut"
-            ar
-            ar-modes="webxr scene-viewer quick-look"
-            camera-controls
-            auto-rotate
-            shadow-intensity="1"
-            exposure="1"
-            style={{
-              width: "100%",
-              height: "80vh",
-              left: "0",
-              top: "0",
-              position: "relative",
-            }}
-          ></model-viewer>
-        </Modal>
+      <Button
+  variant="default"
+  style={{
+    display: "block",
+    margin: "auto",
+    width: "100%",
+    height: "10vh",
+    borderRadius: "10px",
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
+    backgroundColor: "#B2DFFC",
+    color: "#000000",
+    border: "none",
+  }}
+  onClick={() => toggleTillbehör()}
+>
+  Visa accessoarer
+</Button>
 
-        <Button
-          fullWidth
-          variant="outline"
-          style={{
-            position: "relative",
-            height: "10vh",
-            width: "140px",
-            borderRadius: "20px",
-            backgroundColor: "#f5f5f5",
-            color: "#000",
-            fontSize: "12px",
-            margin: "10px",
-            border: "none",
-            boxShadow:
-              "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
-          }}
-        >
-          Hämta PDF
-        </Button>
-      </Button.Group>
     </div>
   );
 }
