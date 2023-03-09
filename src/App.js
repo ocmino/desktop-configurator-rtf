@@ -1,12 +1,6 @@
 import React from "react";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
-import {
-  LoadingOverlay,
-  Modal,
-  Group,
-  Button,
-  Affix,
-} from "@mantine/core";
+import { LoadingOverlay, Modal, Group, Button, Affix } from "@mantine/core";
 import Experience from "./Components/Experience";
 import { CustomizationProvider } from "./Context/Customization";
 import { useHover } from "@mantine/hooks";
@@ -51,7 +45,28 @@ function App() {
               bottom: isDesktop ? "5%" : "5%",
             }}
           >
-          <ARButton />
+            <ARButton style={
+              {
+                position: "absolute",
+                top: "10px",
+                left: "10px",
+                zIndex: 1000,
+                width: "auto",
+                height: "auto",
+                borderRadius: "10px",
+                backgroundColor: "rgba(255, 255, 255, 0.8)",
+                color: "black",
+                border: "none",
+                padding: "10px 20px",
+                fontSize: "16px",
+                cursor: "pointer",
+                transition: "0.3s",
+                boxShadow:
+                  "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+
+            }
+
+            } />
             <Experience />
           </Affix>
         </Modal>
