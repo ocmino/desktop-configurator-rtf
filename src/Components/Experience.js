@@ -15,11 +15,11 @@ const Experience = () => {
         shadows
         camera={{ position: [0, 0, 100], fov: 22 }}
       >
-        <fog attach="fog" args={["#f0f0f0", 100, 150]} />
-        <color attach="background" args={["#f0f0f0"]} />
+        <fog attach="fog" args={['#101010', 10, 20]} />
+        <color attach="background" args={["#101010"]} />
         <OrbitControls
-          enablePan={true}
-          maxPolarAngle={Math.PI / 2.5}
+          enablePan={false}
+          maxPolarAngle={Math.PI / 2}
           minDistance={1}
           maxDistance={6}
         />
