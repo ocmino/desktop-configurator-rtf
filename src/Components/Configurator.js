@@ -266,6 +266,7 @@ function MainMenu() {
           style={{
             position: "relative",
             height: "10vh",
+            width: "140px",
             borderRadius: "20px",
             backgroundColor: "lightblue",
             color: "#000",
@@ -304,6 +305,7 @@ function MainMenu() {
           style={{
             position: "relative",
             height: "10vh",
+            width: "140px",
             borderRadius: "20px",
             backgroundColor: "#f5f5f5",
             color: "#000",
