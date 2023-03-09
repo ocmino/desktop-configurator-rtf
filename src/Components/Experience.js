@@ -41,7 +41,6 @@ const Experience = () => {
           border: "none",
           zIndex: "100",
           fontSize: "9px",
-
         }}
         onClick={() => open()}
       >
