@@ -4,12 +4,9 @@ import { BiChevronRight } from "react-icons/bi";
 
 import { useCustomization } from "../Context/Customization";
 
-
 import "../App.css";
 
 function MainMenu() {
-
-
   const [subMenuIndex, setSubMenuIndex] = useState(-1); // -1 means no submenu is open
 
   const openSubMenu = (index) => {
@@ -29,15 +26,14 @@ function MainMenu() {
   ];
 
   const {
-    
     setBen,
-    
+
     setFärg,
-    
+
     setRygg,
-    
+
     setLåda,
-    
+
     setFärgBen,
     tillbehör,
     setTillbehör,
@@ -51,7 +47,6 @@ function MainMenu() {
       setTillbehör(1);
     }
   };
-  
 
   return (
     <div>
@@ -303,23 +298,22 @@ function MainMenu() {
       )}
 
       <Button
-  variant="default"
-  style={{
-    display: "block",
-    margin: "auto",
-    width: "100%",
-    height: "10vh",
-    borderRadius: "10px",
-    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
-    backgroundColor: "#B2DFFC",
-    color: "#000000",
-    border: "none",
-  }}
-  onClick={() => toggleTillbehör()}
->
-  Visa accessoarer
-</Button>
-
+        variant="default"
+        style={{
+          display: "block",
+          margin: "auto",
+          width: "100%",
+          height: "10vh",
+          borderRadius: "10px",
+          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
+          backgroundColor: "#B2DFFC",
+          color: "#000000",
+          border: "none",
+        }}
+        onClick={() => toggleTillbehör()}
+      >
+        Visa accessoarer
+      </Button>
     </div>
   );
 }

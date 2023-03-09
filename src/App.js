@@ -5,7 +5,7 @@ import Experience from "./Components/Experience";
 import { CustomizationProvider } from "./Context/Customization";
 import { useHover } from "@mantine/hooks";
 import { useEffect } from "react";
-import { ARButton } from "@react-three/xr";
+
 
 function App() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -45,25 +45,7 @@ function App() {
               bottom: isDesktop ? "5%" : "5%",
             }}
           >
-            <ARButton
-              style={{
-                position: "absolute",
-                top: "10px",
-                left: "10px",
-                zIndex: 1000,
-                width: "auto",
-                height: "auto",
-                borderRadius: "10px",
-                color: "black",
-                border: "none",
-                padding: "10px 20px",
-                fontSize: "16px",
-                cursor: "pointer",
-                transition: "0.3s",
-                boxShadow:
-                  "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
-              }}
-            />
+      
             <Experience />
           </Affix>
         </Modal>
